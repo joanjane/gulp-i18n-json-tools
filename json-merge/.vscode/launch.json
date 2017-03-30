@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "gulp.js",
+            "type": "node",
+            "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+            "stopOnEntry": false,
+            "env": {
+                
+            }
+        }
+    ]
+}
