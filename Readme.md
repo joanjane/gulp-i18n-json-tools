@@ -2,7 +2,7 @@
 
 Perform a deep merge between two json files, having a base file and an override file.
 
-## Usage:
+## Usage
 
 ```javascript
 var gulp = require('gulp');
