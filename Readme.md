@@ -9,9 +9,6 @@ var gulp = require('gulp');
 var jsonMerger = require('gulp-json-merger');
 
 gulp.task('default', function () {
-    var base = ;        
-    var override = require('./es.json');    
-
     return jsonMerger(
             require('./en.json'),   // base file with keys that can be overriden
             require('./es.json'),   // override file with keys to override
