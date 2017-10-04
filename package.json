@@ -1,0 +1,34 @@
+{
+  "name": "gulp-json-merger",
+  "version": "1.0.0",
+  "description": "Perform a deep merge between two json files, having a base file and an override file.",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "test": "gulp --gulpfile test/gulpfile.js && gulp --gulpfile test/gulpfile.js test"
+  },
+  "author": "Joan Jané <jjaneballester@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-util": "^3.0.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joanjane/gulp-json-merger"
+  },
+  "bugs": {
+    "url": "https://github.com/joanjane/gulp-json-merger/issues"
+  },
+  "keywords": [
+    "gulp",
+    "json",
+    "merger",
+    "deep",
+    "merge",
+    "task",
+    "plugin"
+  ]
+}
