@@ -22,3 +22,6 @@ gulp.task('default', function () {
 ```shell
 npm install gulp-json-merger gulp-util --save-dev
 ```
+
+## Sample
+Check out [this folder](https://github.com/joanjane/gulp-json-merger/tree/master/test/json) with 3 files (a.json - base, b.json - override, expected-ab.json) to see the result of merging files with this plugin.
