@@ -14,7 +14,7 @@ gulp.task('default', function () {
 
     return jsonMerger(
             require('./en.json'),   // base file with keys that can be overriden
-            require('./es.json'),   // override file with keys that can be overriden
+            require('./es.json'),   // override file with keys to override
             'es-lang.json')         // output filename
         .pipe(gulp.dest('./i18n')); // output folder
 });
