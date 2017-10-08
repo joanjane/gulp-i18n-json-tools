@@ -9,23 +9,25 @@ Features:
 
 3. [In roadmap] Import CSV translations back to your json, updating the translated keys. When the localization team delivers you the translated resources, this tool will override your json with keys present on CSV file.
 
-## Usage:
+## Usage
 
 ```javascript
 var gulp = require('gulp');
 var i18nJsonTools = require('gulp-i18n-json-tools');
 
 gulp.task('merge', function () {
-    var base = require('./assets/en.json');
-    var override = require('./assets/es.json');
-    return i18nJsonTools.jsonMerger(base, override, 'es.json')
-        .pipe(gulp.dest('./assets/gen'));
+    return i18nJsonTools.jsonMerger(
+        require('./assets/en.json'),    // base file with keys that can be overriden
+        require('./assets/es.json'),    // override file with keys to override
+        'es.json')                      // output filename
+    .pipe(gulp.dest('./assets/gen'));   // output folder
 });
 
 gulp.task('export', function () {
-    var base = require('./assets/en.json');
-    return i18nJsonTools.jsonToCsv(base, 'en.csv')
-        .pipe(gulp.dest('./assets/gen'));
+    return i18nJsonTools.jsonToCsv(
+        require('./assets/en.json'),        // json file to export as a csv
+        'en.csv')                           // output filename
+        .pipe(gulp.dest('./assets/gen'));   // output folder
 });
 ```
 
@@ -34,3 +36,6 @@ gulp.task('export', function () {
 ```shell
 npm install gulp-json-merger gulp gulp-util --save-dev
 ```
+
+## Sample
+Check out [this folder](https://github.com/joanjane/gulp-i18n-json-tools/tree/master/test/assets) to see merge example *ab.json* and csv export sample *expected-test-csv.csv*.
