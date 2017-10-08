@@ -9,6 +9,8 @@ Features:
 
 3. [In roadmap] Import CSV translations back to your json, updating the translated keys. When the localization team delivers you the translated resources, this tool will override your json with keys present on CSV file.
 
+This is a work in progress yet, so expect updates soon.
+
 ## Usage
 
 ```javascript
@@ -31,10 +33,10 @@ gulp.task('export', function () {
 });
 ```
 
-## Installation with dependencies
+## Installation with dependencies (published soon)
 
 ```shell
-npm install gulp-json-merger gulp gulp-util --save-dev
+npm install gulp-i18n-json-tools gulp gulp-util --save-dev
 ```
 
 ## Sample
