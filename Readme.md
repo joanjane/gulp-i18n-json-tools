@@ -1,6 +1,6 @@
 # gulp-i18n-json-tools
 
-This is a gulp plugin that tryes help on localization of projects that use json files.
+This is a gulp plugin that tries help on localization of projects that use json files.
 
 Features:
 1. Fill missing translations with a base language file. This plugin merges two json files in order to inherit new keys that are not translated yet on first one, so on your app will display at least, the base language instead of nothing.
