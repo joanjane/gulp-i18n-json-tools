@@ -287,4 +287,4 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-test/json/merged/ab.json
+test/assets/gen

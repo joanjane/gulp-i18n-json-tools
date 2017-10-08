@@ -1,11 +1,13 @@
 {
-  "name": "gulp-json-merger",
+  "name": "gulp-i18n-json-tools",
   "version": "1.0.0",
   "description": "Perform a deep merge between two json files, having a base file and an override file.",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "test": "gulp --gulpfile test/gulpfile.js && gulp --gulpfile test/gulpfile.js test"
+    "gulp": "gulp --gulpfile test/gulpfile.js",
+    "pretest": "npm run gulp",
+    "test": "npm run gulp -- test"
   },
   "author": "Joan Jané <jjaneballester@gmail.com>",
   "license": "MIT",
@@ -17,18 +19,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joanjane/gulp-json-merger"
+    "url": "https://github.com/joanjane/gulp-i18n-json-tools"
   },
   "bugs": {
-    "url": "https://github.com/joanjane/gulp-json-merger/issues"
+    "url": "https://github.com/joanjane/gulp-i18n-json-tools/issues"
   },
   "keywords": [
-    "gulp",
-    "json",
-    "merger",
-    "deep",
-    "merge",
-    "task",
-    "plugin"
+      "gulp",
+      "task",
+      "plugin",
+      "json",
+      "i18n",
+      "internationalization",
+      "localization",
+      "csv",
+      "converter",
+      "merger",
+      "deep merge"
   ]
 }
