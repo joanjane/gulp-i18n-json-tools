@@ -1,0 +1,17 @@
+{
+	"title": "This example has a the base language in english.",
+	"description": "When translation is not overriden on other languages, the merge will inherit the base language keys",
+	"deep": {
+		"1": "one",
+		"2": "two",
+		"3": "three"
+	},
+	"arraysSupport": [
+		"one",
+		"two",
+        "three",
+        {
+            "objectsInArray": "not easy to translate"
+        }
+	]
+}

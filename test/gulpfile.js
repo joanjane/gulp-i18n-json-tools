@@ -3,37 +3,65 @@ var gulpUtil = require('gulp-util'),
     fs = require('fs'),
     i18nJsonTools = require('../index');
 
-gulp.task('default', ['merge', 'export']);
+gulp.task('default', ['merge', 'export', 'import']);
 
 gulp.task('merge', function () {
-    var base = require('./assets/a.json');
-    var override = require('./assets/b.json');
-    return i18nJsonTools.jsonMerger(base, override, 'ab.json')
-        .pipe(gulp.dest('./assets/gen'));
+    return i18nJsonTools
+        .jsonMerger(
+            require('./merge/en.json'),     // base language to inherit missing keys
+            require('./merge/es.json'),     // language to merge with base language
+            'result-es.json')               // output file name
+        .pipe(gulp.dest('./merge'));        // destination folder
 });
 
 gulp.task('export', function () {
-    var base = require('./assets/test-csv.json');
-    return i18nJsonTools.jsonToCsv(base, 'test-csv.csv')
-        .pipe(gulp.dest('./assets/gen'));
+    return i18nJsonTools
+        .jsonToCsv(
+            require('./export/en.json'),    // json to export to CSV
+            'result-en.csv')                // output file name
+        .pipe(gulp.dest('./export'));       // destination folder
 });
 
-gulp.task('test', function () {
-    var expected = JSON.stringify(require('./assets/expected-ab.json'));
-    var actual = JSON.stringify(require('./assets/gen/ab.json'));
+gulp.task('import', function () {
+    return i18nJsonTools
+        .updateJsonFromCsv(
+            require('./import/to-fill.json'),               // target json to try to fill with csv keys
+            fs.readFileSync('./import/en.csv', 'utf8'),     // csv to import
+            'result-en.json')                               // output file updated with csv matched content
+        .pipe(gulp.dest('./import'));                       // destination folder
+});
+
+gulp.task('test', ['test:merge', 'test:export', 'test:import']);
+
+gulp.task('test:merge', function () {
+    var expected = JSON.stringify(require('./merge/expected-result-es.json'));
+    var actual = JSON.stringify(require('./merge/result-es.json'));
     if (expected !== actual) {
         throw new gulpUtil.PluginError({
             plugin: 'gulp-i18n-json-tools',
             message: 'Error: Expected merge content is not equal to actual merge content'
         });
     }
+});
 
-    var expected = fs.readFileSync('./assets/expected-test-csv.csv', 'utf8');
-    var actual = fs.readFileSync('./assets/gen/test-csv.csv', 'utf8');
+gulp.task('test:export', function () {
+    var expected = fs.readFileSync('./export/expected-result-en.csv', 'utf8');
+    var actual = fs.readFileSync('./export/result-en.csv', 'utf8');
     if (expected !== actual) {
         throw new gulpUtil.PluginError({
             plugin: 'gulp-i18n-json-tools',
             message: 'Error: Expected export CSV content is not equal to actual csv content'
+        });
+    }
+});
+
+gulp.task('test:import', function () {
+    var expected = JSON.stringify(require('./import/expected-result-en.json'));
+    var actual = JSON.stringify(require('./import/result-en.json'));
+    if (expected !== actual) {
+        throw new gulpUtil.PluginError({
+            plugin: 'gulp-i18n-json-tools',
+            message: 'Error: Expected import result as json from CSV is not equal to expected'
         });
     }
 });

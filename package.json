@@ -12,7 +12,8 @@
   "author": "Joan Jané <jjaneballester@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "gulp-util": "~3.0.8"
+    "gulp-util": "~3.0.8",
+    "papaparse": "^4.3.6"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
@@ -29,16 +30,16 @@
     "url": "https://github.com/joanjane/gulp-i18n-json-tools/issues"
   },
   "keywords": [
-      "gulp",
-      "task",
-      "plugin",
-      "json",
-      "i18n",
-      "internationalization",
-      "localization",
-      "csv",
-      "converter",
-      "merger",
-      "deep merge"
+    "gulp",
+    "task",
+    "plugin",
+    "json",
+    "i18n",
+    "internationalization",
+    "localization",
+    "csv",
+    "converter",
+    "merger",
+    "deep merge"
   ]
 }

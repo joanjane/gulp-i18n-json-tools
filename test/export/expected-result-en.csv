@@ -1,0 +1,11 @@
+"title""","This ""quotes example"" has a the base language in english."
+description,"When translation is not overriden
+ on other languages, the merge will inherit the base language keys"
+deep.1,one
+deep.2,two
+deep.3,three
+deep.4.nesting,very deep
+arraysSupport.$0,one
+arraysSupport.$1,two
+arraysSupport.$2,three
+arraysSupport.$3.objectsInArray,not easy to translate

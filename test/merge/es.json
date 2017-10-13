@@ -1,0 +1,14 @@
+{
+	"title": "Este ejemplo tiene el idioma base en inglés.",
+	"deep": {
+		"1": "uno",
+		"3": "tres"
+	},
+	"arraysSupport": [
+		"uno",
+		"dos",
+        {
+            "objectsInArray": "No es fácil de traducir"
+        }
+	]
+}

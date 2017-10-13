@@ -13,9 +13,18 @@ declare module 'gulp-i18n-json-tools' {
      */
     const jsonToCsv: (json: object, outputFileName: string, options?: JsonToCsvOptions) => NodeJS.ReadStream;
 
+    /**
+     * @param targetJson json to be updated with matched keys
+     * @param importCsv content of csv to import
+     * @param outputFileName name of output updated json
+     * @param options (optional) advanced options of csv and flattening json. See JsonToCsvOptions type for details
+     */
+    const updateJsonFromCsv: (targetJson: object, importCsv: string, outputFileName: string, options?: JsonToCsvOptions) => NodeJS.ReadStream;
+
     export = {
         jsonMerger,
         jsonToCsv,
+        updateJsonFromCsv
     };
 
     type JsonToCsvOptions = {
