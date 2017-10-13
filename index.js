@@ -21,7 +21,6 @@ module.exports = {
         options.json.arrayIndexMark = options.json.arrayIndexMark ? options.json.arrayIndexMark : '$';
         options.csv = options.csv || {};
         options.csv.separator = options.csv.separator ? options.csv.separator : ',';
-        options.csv.lineBreak = options.csv.lineBreak ? options.csv.lineBreak : '\r\n';
 
         var parsedJson = Papa.parse(importCsv, {
             delimiter: options.csv.separator,
@@ -70,7 +69,6 @@ function setVal(json, remainingKeys, finalValue, arrayIndexMark) {
         } else if (remainingKeys[0] && remainingKeys[0][0] === '$') {
             // check if is array lloking at first child
             json[key] = [];
-            console.log(key);
         }
     }
     setVal(json[key], remainingKeys, finalValue, arrayIndexMark);
