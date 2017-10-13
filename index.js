@@ -44,15 +44,31 @@ function setVal(json, remainingKeys, finalValue, arrayIndexMark) {
     }
     var key = remainingKeys.shift();
     if (remainingKeys.length === 0) {
-        json[key] = finalValue;
+        if (key[0] === '$') {
+            key = parseInt(key.slice(1));
+            if (!Array.isArray(json)) {
+                json = [];
+            }
+            if (json.length -1 < key) {
+                // if there are less items on array than index, append value
+                json.push(finalValue);
+            } else {
+                // if we can override directly a item of an array, then update it
+                json[key] = finalValue;
+            }
+        } else {
+            json[key] = finalValue;
+        }
         return;
     }
 
     if (!json[key]) {
-        if (key[0] === '$') { // check if array valye
+        if (key[0] === '$') {
+            // check if array value
             key = key.slice(1);
             json[key] = {};
-        } else if(remainingKeys[0] && remainingKeys[0].indexOf("$") > 0) { // check if is array
+        } else if (remainingKeys[0] && remainingKeys[0][0] === '$') {
+            // check if is array lloking at first child
             json[key] = [];
             console.log(key);
         }
