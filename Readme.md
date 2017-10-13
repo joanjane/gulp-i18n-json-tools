@@ -1,4 +1,6 @@
 # gulp-i18n-json-tools
+![build](https://travis-ci.org/joanjane/gulp-i18n-json-tools.svg?branch=master)
+
 
 This is a gulp plugin that tries help on localization of projects that use json files.
 
