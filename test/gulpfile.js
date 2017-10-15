@@ -68,8 +68,9 @@ function assertArrayEquals(arr1, arr2, message) {
     message = message || '';
     arr1.forEach((val, i) => {
         if ( typeof val === 'string' && typeof arr2[i] === 'string') {
-            var a = val.replace(/(\\r\\n|\\n|\\r)/gm,'');
-            var b = arr2[i].replace(/(\\r\\n|\\n|\\r)/gm,'');
+            var regex = /(\r\n|\n|\r|\\r\\n|\\n|\\r)/gm;
+            var a = val.replace(regex,'');
+            var b = arr2[i].replace(regex,'');
             if (a !== b) {
                 assertionFailed(formatParams(message, 'Found differences between strings', a, b));
             }
