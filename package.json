@@ -20,7 +20,8 @@
   },
   "peerDependencies": {
     "gulp": "<=5",
-    "gulp-util": "~3.0.8"
+    "gulp-util": "~3.0.8",
+    "papaparse": "^4.3.6"
   },
   "repository": {
     "type": "git",
