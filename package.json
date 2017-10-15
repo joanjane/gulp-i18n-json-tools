@@ -6,8 +6,8 @@
   "typings": "index.d.ts",
   "scripts": {
     "gulp": "gulp --gulpfile test/gulpfile.js",
-    "pretest": "npm run gulp",
-    "test": "npm run gulp -- test"
+    "test": "npm run gulp",
+    "run": "npm run gulp -- run"
   },
   "author": "Joan Jané <jjaneballester@gmail.com>",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "papaparse": "^4.3.6"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0"
   },
   "peerDependencies": {
     "gulp": "<=5",
