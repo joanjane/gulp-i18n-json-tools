@@ -14,7 +14,8 @@
 		"to-fill",
         "to-fill",
         {
-            "objectsInArray": "to-fill"
+			"objectsInArray": "to-fill",
+			"test": "to-fill"
         }
 	]
 }

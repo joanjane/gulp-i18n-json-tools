@@ -9,3 +9,4 @@ arraysSupport.$0,one
 arraysSupport.$1,two
 arraysSupport.$2,three
 arraysSupport.$3.objectsInArray,not easy to translate
+arraysSupport.$3.test,item 2 in object/array
