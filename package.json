@@ -1,6 +1,6 @@
 {
   "name": "gulp-i18n-json-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Perform a deep merge between two json files, having a base file and an override file.",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -17,11 +17,6 @@
   },
   "devDependencies": {
     "gulp": "git://github.com/gulpjs/gulp.git#4.0"
-  },
-  "peerDependencies": {
-    "gulp": "<5",
-    "gulp-util": "~3.0.8",
-    "papaparse": "^4.3.6"
   },
   "repository": {
     "type": "git",
