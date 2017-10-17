@@ -15,23 +15,35 @@ Features:
 ## Usage
 
 ```javascript
-var gulp = require('gulp');
-var i18nJsonTools = require('gulp-i18n-json-tools');
+var gulp = require('gulp'),
+    fs = require('fs'),
+    i18nJsonTools = require('gulp-i18n-json-tools');
 
-gulp.task('merge', function () {
-    return i18nJsonTools.jsonMerger(
-        require('./assets/en.json'),    // base file with keys that can be overriden
-        require('./assets/es.json'),    // override file with keys to override
-        'es.json')                      // output filename
-    .pipe(gulp.dest('./assets/gen'));   // output folder
-});
+function merge() {
+    return i18nJsonTools
+        .jsonMerger(
+            require('./merge/en.json'),     // base language to inherit missing keys
+            require('./merge/es.json'),     // language to merge with base language
+            'result-es.json')               // output file name
+        .pipe(gulp.dest('./merge'));        // destination folder
+}
 
-gulp.task('export', function () {
-    return i18nJsonTools.jsonToCsv(
-        require('./assets/en.json'),        // json file to export as a csv
-        'en.csv')                           // output filename
-        .pipe(gulp.dest('./assets/gen'));   // output folder
-});
+function export() {
+    return i18nJsonTools
+        .jsonToCsv(
+            require('./export/en.json'),    // json to export to CSV
+            'result-en.csv')                // output file name
+        .pipe(gulp.dest('./export'));       // destination folder
+}
+
+function import() {
+    return i18nJsonTools
+        .updateJsonFromCsv(
+            require('./import/to-fill.json'),               // target json to try to fill with csv keys
+            fs.readFileSync('./import/en.csv', 'utf8'),     // csv to import
+            'result-en.json')                               // output file updated with csv matched content
+        .pipe(gulp.dest('./import'));                       // destination folder
+}
 ```
 
 ## Installation with dependencies
