@@ -10,3 +10,6 @@ arraysSupport.$1,two
 arraysSupport.$2,three
 arraysSupport.$3.objectsInArray,not easy to translate
 arraysSupport.$3.test,item 2 in object/array
+test.one,1
+test.array.$0,one
+test.array.$1,two

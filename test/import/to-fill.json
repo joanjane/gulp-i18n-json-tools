@@ -17,5 +17,8 @@
 			"objectsInArray": "to-fill",
 			"test": "to-fill"
         }
-	]
+	],
+	"test": {
+		"nonExistingOnCsv": "value from json"
+	}
 }
