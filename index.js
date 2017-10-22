@@ -1,20 +1,37 @@
-var utils = require('./lib/utils');
+const utils = require('./lib/utils');
 
-module.exports = {
-    jsonMerger: function (baseJson, overrideJson, outputFileName) {
-        var result = utils.objectMerge(baseJson, overrideJson);
+module.exports.jsonMerger = function (baseJson, overrideJson, outputFileName) {
+    var result = utils.objectMerge(baseJson, overrideJson);
 
-        return utils.textWriter(outputFileName, JSON.stringify(result));
-    },
-    jsonToCsv: function (json, outputFileName, options) {
-        options = options || {};
-        var flattenedJson = utils.flatJson(json, options.json);
-        var contentLines = utils.flatJsonToArray(flattenedJson, options.csv);
-
-        return utils.textWriter(outputFileName, utils.arrayToCsv(contentLines));
-    },
-    updateJsonFromCsv: function (targetJson, importCsv, outputFileName, options) {
-        utils.updateJsonFromCsv(targetJson, importCsv, options);
-        return utils.textWriter(outputFileName, JSON.stringify(targetJson));
-    }
+    return textWriter(outputFileName, JSON.stringify(result));
 };
+
+module.exports.jsonToCsv = function (json, outputFileName, options) {
+    return textWriter(outputFileName, utils.convertJsonToCsv(json, options));
+};
+
+module.exports.updateJsonFromCsv = function (targetJson, importCsv, outputFileName, options) {
+    utils.updateJsonFromCsv(targetJson, importCsv, options);
+    return textWriter(outputFileName, JSON.stringify(targetJson));
+};
+
+/**
+ * Output a file with a name and content
+ * Source: http://stackoverflow.com/questions/23230569/how-do-you-create-a-file-from-a-string-in-gulp
+ * @param {string} filename
+ * @param {string} content
+ */
+function textWriter(filename, content) {
+    var gutil = require('gulp-util');
+    var src = require('stream').Readable({ objectMode: true });
+    src._read = function () {
+        this.push(new gutil.File({
+            cwd: '',
+            base: '',
+            path: filename,
+            contents: new Buffer(content)
+        }));
+        this.push(null);
+    };
+    return src;
+}

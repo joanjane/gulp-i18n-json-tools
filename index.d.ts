@@ -11,7 +11,7 @@ declare module 'gulp-i18n-json-tools' {
      * @param outputFileName name of output csv file
      * @param options (optional) advanced options of csv and flattening json. See JsonToCsvOptions type for details
      */
-    const jsonToCsv: (json: object, outputFileName: string, options?: JsonToCsvOptions) => NodeJS.ReadStream;
+    const jsonToCsv: (json: object, outputFileName: string, options?: SerializationOptions) => NodeJS.ReadStream;
 
     /**
      * @param targetJson json to be updated with matched keys
@@ -19,7 +19,7 @@ declare module 'gulp-i18n-json-tools' {
      * @param outputFileName name of output updated json
      * @param options (optional) advanced options of csv and flattening json. See JsonToCsvOptions type for details
      */
-    const updateJsonFromCsv: (targetJson: object, importCsv: string, outputFileName: string, options?: JsonToCsvOptions) => NodeJS.ReadStream;
+    const updateJsonFromCsv: (targetJson: object, importCsv: string, outputFileName: string, options?: SerializationOptions) => NodeJS.ReadStream;
 
     export = {
         jsonMerger,
@@ -27,35 +27,34 @@ declare module 'gulp-i18n-json-tools' {
         updateJsonFromCsv
     };
 
-    type JsonToCsvOptions = {
-        json?: {
-            /**
-             * Json property separator (ex: {A: { B: 'hello' } } => "A.B": "hello")
-             * @default '.'
-             */
-            keySeparator: string,
-            /**
-             * When serializing arrays, add a special mark on the index (ex: { A: ['hello'] } => "A.$0": "hello")
-             * @default '$'
-             */
-            arrayIndexMark: string
-        },
-        csv?: {
-            /**
-             * CSV separator
-             * @default ','
-             */
-            separator: string,
-            /**
-             * Line break symbol
-             * @default '\r\n'
-             */
-            lineBreak: string,
-            /**
-             * Add separator mark at top of csv like "sep=,"
-             * @default false
-             */
-            addSeparatorMark: boolean
-        }
+    type SerializationOptions = {
+        json?: JsonSerializationOptions,
+        csv?: CsvSerializationOptions
+    };
+
+    type JsonSerializationOptions = {
+        /**
+         * Json property separator (ex: {A: { B: 'hello' } } => "A.B": "hello")
+         * @default '.'
+         */
+        keySeparator: string,
+        /**
+         * When serializing arrays, add a special mark on the index (ex: { A: ['hello'] } => "A.$0": "hello")
+         * @default '$'
+         */
+        arrayIndexMark: string
+    };
+
+    type CsvSerializationOptions = {
+        /**
+         * CSV separator
+         * @default ','
+         */
+        separator: string,
+        /**
+         * Line break symbol
+         * @default '\r\n'
+         */
+        lineBreak: string
     };
 }

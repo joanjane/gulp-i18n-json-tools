@@ -1,7 +1,7 @@
 {
   "name": "gulp-i18n-json-tools",
-  "version": "1.0.1",
-  "description": "Perform a deep merge between two json files, having a base file and an override file.",
+  "version": "1.0.2",
+  "description": "This is a gulp plugin that tries help on localization of projects that use json files.",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -36,6 +36,8 @@
     "csv",
     "converter",
     "merger",
-    "deep merge"
+    "deep merge",
+    "import",
+    "export"
   ]
 }
