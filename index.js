@@ -22,12 +22,12 @@ module.exports.updateJsonFromCsv = function (targetJson, importCsv, outputFileNa
  * @param {string} content
  */
 function textWriter(filename, content) {
-    var gutil = require('gulp-util');
+    var Vinyl = require('vinyl');
     var src = require('stream').Readable({ objectMode: true });
     src._read = function () {
-        this.push(new gutil.File({
+        this.push(new Vinyl({
             cwd: '',
-            base: '',
+            base: '.',
             path: filename,
             contents: new Buffer(content)
         }));

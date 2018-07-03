@@ -1,8 +1,7 @@
-var gulpUtil = require('gulp-util'),
+var PluginError = require('plugin-error'),
     gulp = require('gulp'),
     fs = require('fs'),
-    i18nJsonTools = require('../index'),
-    Papa = require('papaparse');
+    i18nJsonTools = require('../index');
 
 function mergeDemo() {
     return i18nJsonTools
@@ -90,7 +89,7 @@ function assertStringEquals(string1, string2, message) {
 }
 
 function assertionFailed(message) {
-    throw new gulpUtil.PluginError({
+    throw new PluginError({
         plugin: 'gulp-i18n-json-tools',
         message: message
     });
