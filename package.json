@@ -7,7 +7,9 @@
   "scripts": {
     "gulp": "gulp --gulpfile test/gulpfile.js",
     "test": "npm run gulp",
-    "run": "npm run gulp -- run"
+    "run": "npm run gulp -- run",
+    "predeploy": "npm test",
+    "deploy": "npm publish"
   },
   "author": "Joan Jané <jjaneballester@gmail.com>",
   "license": "MIT",
