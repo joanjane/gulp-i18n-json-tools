@@ -12,7 +12,7 @@
   "author": "Joan Jané <jjaneballester@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "papaparse": "^4.3.6",
+    "papaparse": "^4.5.0",
     "vinyl": "^2.2.0"
   },
   "devDependencies": {
