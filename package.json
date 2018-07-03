@@ -1,22 +1,25 @@
 {
   "name": "gulp-i18n-json-tools",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "This is a gulp plugin that tries help on localization of projects that use json files.",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
     "gulp": "gulp --gulpfile test/gulpfile.js",
     "test": "npm run gulp",
-    "run": "npm run gulp -- run"
+    "run": "npm run gulp -- run",
+    "predeploy": "npm test",
+    "deploy": "npm publish"
   },
   "author": "Joan Jané <jjaneballester@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "gulp-util": "~3.0.8",
-    "papaparse": "^4.3.6"
+    "papaparse": "^4.5.0",
+    "vinyl": "^2.2.0"
   },
   "devDependencies": {
-    "gulp": "git://github.com/gulpjs/gulp.git#4.0"
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0",
+    "plugin-error": "^1.0.1"
   },
   "repository": {
     "type": "git",

@@ -49,7 +49,7 @@ function import() {
 ## Installation with dependencies
 
 ```shell
-npm install gulp-i18n-json-tools gulp gulp-util papaparse --save-dev
+npm install gulp-i18n-json-tools gulp vinyl papaparse --save-dev
 ```
 
 ## Sample
